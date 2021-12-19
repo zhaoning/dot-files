@@ -3,3 +3,5 @@
 - `.vimrc`
 - `.bashrc`
 - `.zshrc`
+- `.tmux.conf`
+- `.ledgerrc`
