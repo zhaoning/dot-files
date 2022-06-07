@@ -1,18 +1,18 @@
 new-session -c ~/ledger -s ledger -n balance
 
-splitw -v -l 7
-splitw -h -l 51
+splitw -v -l 6  # Bottom row height
+splitw -h -l 51 # Networth width
 selectp -t 0
-splitw -h -l 88
-splitw -v -l 14
+splitw -h -l 88 # Editor width
+splitw -v -l 14 # Uncleared height
 selectp -t 0
-splitw -v -l 4
+splitw -v -l 4  # Receivable height
 selectp -t 0
-splitw -v -l 11
+splitw -v -l 9  # Vouchers height
 selectp -t 0
-splitw -v -l 6
+splitw -v -l 6  # Property height
 selectp -t 0
-splitw -v -l 9
+splitw -v -l 9  # Investment height
 selectp -t 0
 
 selectp -t 0
