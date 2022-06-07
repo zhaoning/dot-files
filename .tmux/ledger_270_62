@@ -1,0 +1,44 @@
+new-session -c ~/ledger -s ledger -n balance
+
+splitw -h -l 121
+selectp -t 0
+splitw -h -l 88
+splitw -v -l 5
+selectp -t 1
+splitw -v -l 15
+selectp -t 0
+splitw -v -l 7
+selectp -t 0
+splitw -v -l 12
+selectp -t 0
+splitw -v -l 14
+selectp -t 0
+splitw -v -l 8
+selectp -t 0
+splitw -v -l 9
+
+selectp -t 0
+send-keys "watch -c ledger b --flat -c --force-color --no-total 'Asset:Checking'" C-m
+
+selectp -t 1
+send-keys "watch -c ledger b --flat -c --force-color -X AUD 'Asset:Crypto' 'Asset:Investment'" C-m
+
+selectp -t 2
+send-keys "watch -c ledger b --flat -c --force-color --no-total 'Asset:Property' 'Asset:Super'" C-m
+
+selectp -t 3
+send-keys "watch -c ledger b --flat -c --force-color --no-total 'Asset:Apple' 'Asset:Gift Card' 'Asset:Voucher'" C-m
+
+selectp -t 4
+send-keys "watch -c ledger b --flat -c --force-color --no-total 'Asset:Receivable'" C-m
+
+selectp -t 5
+send-keys "watch -c ledger b -cnX AUD --force-color ^Asset ^Liability" C-m
+
+selectp -t 7
+send-keys "watch -c ledger r -Uc --force-color" C-m
+
+selectp -t 8
+send-keys "watch -c ledger cleared --flat -c --force-color --no-total 'Asset:Virgin Go' 'Liability:AMEX Platinum'" C-m
+
+selectp -t 6
