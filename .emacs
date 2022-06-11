@@ -20,9 +20,13 @@
  ;; If there is more than one, they won't work right.
  )
 
-(load-theme 'wombat t)
+(load-theme 'tango-dark t)
 
 (setq org-deadline-warning-days 3)
 
 (setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
 (setq org-refile-use-outline-path 'file)
+
+(setq org-default-notes-file (concat org-directory "/inbox.org"))
+
+(setq column-number-mode t)
