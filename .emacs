@@ -9,9 +9,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-files
-   (quote
-    ("~/org/cyber.org" "~/org/aiaa.org" "~/org/luke.org" "~/org/finance.org" "~/org/trivia.org" "~/org/inbox.org"))))
+ '(org-agenda-files (file-expand-wildcards "~/org/*.org"))
+ )
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -27,6 +26,6 @@
 (setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
 (setq org-refile-use-outline-path 'file)
 
-(setq org-default-notes-file (concat org-directory "/inbox.org"))
+(setq org-default-notes-file (quote "~/org/inbox.org"))
 
 (setq column-number-mode t)
