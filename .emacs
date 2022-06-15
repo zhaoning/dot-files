@@ -26,6 +26,9 @@
 (setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
 (setq org-refile-use-outline-path 'file)
 
+(setq org-adapt-indentation t)
+
 (setq org-default-notes-file (quote "~/org/inbox.org"))
 
 (setq column-number-mode t)
+
