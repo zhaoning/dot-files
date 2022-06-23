@@ -18,8 +18,26 @@
       nil)
      ("b" "Backlog" alltodo ""
       ((org-agenda-todo-ignore-scheduled 'all)
-       (org-agenda-todo-ignore-deadlines 'all)))))
- '(org-agenda-files (file-expand-wildcards "~/org/*.org")))
+       (org-agenda-todo-ignore-deadlines 'all)))
+     ("i" "Individual agenda" agenda ""
+      ((org-agenda-tag-filter-preset
+	'("-luke"))))
+     ("l" "Luke agenda" agenda ""
+      ((org-agenda-tag-filter-preset
+	'("+luke"))))))
+ '(org-agenda-files (file-expand-wildcards "~/org/*.org"))
+ '(org-capture-templates
+   '(("t" "Task" entry
+      (file+headline "~/org/inbox.org" "Tasks")
+      "* TODO %^{Task}%? %^G
+  %u" :empty-lines 1)
+     ("i" "Idea" entry
+      (file "~/org/inbox.org")
+      "" :empty-lines 1)
+     ("g" "Grocery" entry
+      (file+olp "~/org/trivia.org" "Shopping")
+      "* TODO %?  :grocery:
+  %u" :empty-lines 1))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
