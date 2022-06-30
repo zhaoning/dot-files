@@ -14,10 +14,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ledger-reports
-   '(("bal" "%(binary) -f %(ledger-file) bal")
+   '(("bal" "%(binary) -f %(ledger-file) bal --flat --no-total ^Asset ^Liability")
      ("reg" "%(binary) -f %(ledger-file) reg")
      ("payee" "%(binary) -f %(ledger-file) reg @%(payee)")
-     ("account" "%(binary) -f %(ledger-file) reg %(account)")))
+     ("account" "%(binary) -f %(ledger-file) reg %(account)")
+     ("accls" "%(binary) -f %(ledger-file) accounts")))
+ '(ledger-schedule-file "schedule.ledger")
  '(org-agenda-custom-commands
    '(("n" "Agenda and all TODOs"
       ((agenda "" nil)
