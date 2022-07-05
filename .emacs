@@ -18,7 +18,8 @@
      ("reg" "%(binary) -f %(ledger-file) reg")
      ("payee" "%(binary) -f %(ledger-file) reg @%(payee)")
      ("account" "%(binary) -f %(ledger-file) reg %(account)")
-     ("accls" "%(binary) -f %(ledger-file) accounts")))
+     ("accls" "%(binary) -f %(ledger-file) accounts")
+     ("expense_fy22" "%(binary) -f %(ledger-file) -b 2021-07-01 -e 2022-07-01 bal ^Expense -X AUD")))
  '(ledger-schedule-file "schedule.ledger")
  '(org-agenda-custom-commands
    '(("n" "Agenda and all TODOs"
@@ -43,7 +44,7 @@
       "* TODO %^{Task}%? %^G
   %u" :empty-lines 1)
      ("g" "Grocery" entry
-      (file+olp "~/org/inbox.org" "Shopping")
+      (file "~/org/inbox.org")
       "* TODO %?  :grocery:
   %u" :empty-lines 1)))
  '(package-selected-packages '(ledger-mode)))
