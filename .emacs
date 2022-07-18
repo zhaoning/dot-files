@@ -13,11 +13,18 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ledger-reconcile-sort-key "(date)")
  '(ledger-reports
-   '(("bal" "%(binary) -f %(ledger-file) bal --flat --no-total ^Asset ^Liability")
-     ("reg" "%(binary) -f %(ledger-file) reg")
-     ("payee" "%(binary) -f %(ledger-file) reg @%(payee)")
-     ("account" "%(binary) -f %(ledger-file) reg %(account)")
+   '(("networth" "%(binary) -f %(ledger-file) bal -cnX AUD ^Asset ^Liability")
+     ("month" "%(binary) -f %(ledger-file) --period 'last 12 months' -M reg %(account)")
+     ("eff_month" "%(binary) -f %(ledger-file) --period 'last 12 months' -M --effective reg %(account)")
+     ("swyftx_flow_fy22" "%(binary) -f %(ledger-file) -b 2021-07-01 -e 2022-07-01 reg ^Asset:Crypto:Swyftx:Current -P")
+     ("ig_flow_fy22" "%(binary) -f %(ledger-file) -b 2021-07-01 -e 2022-07-01 reg ^Asset:Security:IG:Current -P")
+     ("invbal_fy22" "%(binary) -f %(ledger-file) -e 2022-06-30 bal --no-total ^Asset:Crypto ^Asset:Security ^Asset:Property -X AUD")
+     ("income_fy22" "%(binary) -f %(ledger-file) -b 2021-07-01 -e 2022-07-01 bal ^Income -X AUD")
+     ("bal" "%(binary) -f %(ledger-file) bal --flat --no-total -c ^Asset ^Liability")
+     ("payee" "%(binary) -f %(ledger-file) reg -c @%(payee)")
+     ("account" "%(binary) -f %(ledger-file) reg -c %(account)")
      ("accls" "%(binary) -f %(ledger-file) accounts")
      ("expense_fy22" "%(binary) -f %(ledger-file) -b 2021-07-01 -e 2022-07-01 bal ^Expense -X AUD")))
  '(ledger-schedule-file "schedule.ledger")
@@ -33,10 +40,10 @@
        (org-agenda-todo-ignore-deadlines 'all)))
      ("i" "Individual agenda" agenda ""
       ((org-agenda-tag-filter-preset
-	'("-luke"))))
+	'("-homework"))))
      ("l" "Luke agenda" agenda ""
       ((org-agenda-tag-filter-preset
-	'("+luke"))))))
+	'("+homework"))))))
  '(org-agenda-files (file-expand-wildcards "~/org/*.org"))
  '(org-capture-templates
    '(("t" "Task" entry
@@ -46,6 +53,10 @@
      ("g" "Grocery" entry
       (file "~/org/inbox.org")
       "* TODO %?  :grocery:
+  %u" :empty-lines 1)
+     ("b" "Building" entry
+      (file+olp "~/org/finance.org" "Property" "Craigieburn" "DIY house repair" "Tools and materials")
+      "* TODO %?  :building:bunnings:
   %u" :empty-lines 1)))
  '(package-selected-packages '(ledger-mode)))
 
