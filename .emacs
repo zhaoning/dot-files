@@ -15,18 +15,18 @@
  ;; If there is more than one, they won't work right.
  '(ledger-reconcile-sort-key "(date)")
  '(ledger-reports
-   '(("networth" "%(binary) -f %(ledger-file) bal -cnX AUD ^Asset ^Liability")
-     ("month" "%(binary) -f %(ledger-file) --period 'last 12 months' -M reg %(account)")
-     ("eff_month" "%(binary) -f %(ledger-file) --period 'last 12 months' -M --effective reg %(account)")
-     ("swyftx_flow_fy22" "%(binary) -f %(ledger-file) -b 2021-07-01 -e 2022-07-01 reg ^Asset:Crypto:Swyftx:Current -P")
-     ("ig_flow_fy22" "%(binary) -f %(ledger-file) -b 2021-07-01 -e 2022-07-01 reg ^Asset:Security:IG:Current -P")
-     ("invbal_fy22" "%(binary) -f %(ledger-file) -e 2022-06-30 bal --no-total ^Asset:Crypto ^Asset:Security ^Asset:Property -X AUD")
-     ("income_fy22" "%(binary) -f %(ledger-file) -b 2021-07-01 -e 2022-07-01 bal ^Income -X AUD")
-     ("bal" "%(binary) -f %(ledger-file) bal --flat --no-total -c ^Asset ^Liability")
-     ("payee" "%(binary) -f %(ledger-file) reg -c @%(payee)")
-     ("account" "%(binary) -f %(ledger-file) reg -c %(account)")
-     ("accls" "%(binary) -f %(ledger-file) accounts")
-     ("expense_fy22" "%(binary) -f %(ledger-file) -b 2021-07-01 -e 2022-07-01 bal ^Expense -X AUD")))
+   '(("Upcoming Payables" "%(binary) -f %(ledger-file) reg ^Asset:Receivable --effective -b \"today\" -S \"date\"")
+     ("Monthly Trend Effective" "%(binary) -f %(ledger-file) --period 'last 12 months' -M --effective reg %(account)")
+     ("Account List" "%(binary) -f %(ledger-file) accounts")
+     ("Net Worth" "%(binary) -f %(ledger-file) bal -cnX AUD ^Asset ^Liability")
+     ("Balance Sheet" "%(binary) -f %(ledger-file) bal --flat --no-total -c ^Asset ^Liability")
+     ("Register of Payee" "%(binary) -f %(ledger-file) reg -c @%(payee)")
+     ("Register of Account" "%(binary) -f %(ledger-file) reg -c %(account)")
+     ("FY22 Investment Activity Summary - Swyftx" "%(binary) -f %(ledger-file) -b 2021-07-01 -e 2022-07-01 reg ^Asset:Crypto:Swyftx:Current -P")
+     ("FY22 Investment Activity Summary - IG" "%(binary) -f %(ledger-file) -b 2021-07-01 -e 2022-07-01 reg ^Asset:Security:IG:Current -P")
+     ("FY22 Investment Allocation" "%(binary) -f %(ledger-file) -e 2022-06-30 bal --no-total ^Asset:Crypto ^Asset:Security ^Asset:Property -X AUD")
+     ("FY22 Income" "%(binary) -f %(ledger-file) -b 2021-07-01 -e 2022-07-01 bal ^Income -X AUD")
+     ("FY22 Expense" "%(binary) -f %(ledger-file) -b 2021-07-01 -e 2022-07-01 bal ^Expense -X AUD")))
  '(ledger-schedule-file "schedule.ledger")
  '(org-agenda-custom-commands
    '(("n" "Agenda and all TODOs"
@@ -58,7 +58,7 @@
       (file+olp "~/org/finance.org" "Property" "Craigieburn" "DIY house repair" "Tools and materials")
       "* TODO %?  :building:bunnings:
   %u" :empty-lines 1)))
- '(package-selected-packages '(ledger-mode)))
+ '(package-selected-packages '(magit ledger-mode)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
