@@ -16,16 +16,16 @@
  '(ledger-reconcile-sort-key "(date)")
  '(ledger-reports
    '(("Upcoming Payables" "%(binary) -f %(ledger-file) reg ^Asset:Receivable --effective -b \"today\" -S \"date\"")
-     ("Monthly Trend Effective" "%(binary) -f %(ledger-file) --period 'last 12 months' -M --effective reg %(account)")
-     ("Account List" "%(binary) -f %(ledger-file) accounts")
      ("Net Worth" "%(binary) -f %(ledger-file) bal -cnX AUD ^Asset ^Liability")
-     ("Balance Sheet" "%(binary) -f %(ledger-file) bal --flat --no-total -c ^Asset ^Liability")
-     ("Register of Payee" "%(binary) -f %(ledger-file) reg -c @%(payee)")
-     ("Register of Account" "%(binary) -f %(ledger-file) reg -c %(account)")
+     ("Monthly Trend Effective" "%(binary) -f %(ledger-file) --period 'last 12 months' -M --effective reg %(account)")
      ("FY22 Investment Activity Summary - Swyftx" "%(binary) -f %(ledger-file) -b 2021-07-01 -e 2022-07-01 reg ^Asset:Crypto:Swyftx:Current -P")
      ("FY22 Investment Activity Summary - IG" "%(binary) -f %(ledger-file) -b 2021-07-01 -e 2022-07-01 reg ^Asset:Security:IG:Current -P")
      ("FY22 Investment Allocation" "%(binary) -f %(ledger-file) -e 2022-06-30 bal --no-total ^Asset:Crypto ^Asset:Security ^Asset:Property -X AUD")
      ("FY22 Income" "%(binary) -f %(ledger-file) -b 2021-07-01 -e 2022-07-01 bal ^Income -X AUD")
+     ("Balance Sheet" "%(binary) -f %(ledger-file) bal --flat --no-total -c ^Asset ^Liability")
+     ("Register of Payee" "%(binary) -f %(ledger-file) reg -c @%(payee)")
+     ("Register of Account" "%(binary) -f %(ledger-file) reg -c %(account)")
+     ("Account List" "%(binary) -f %(ledger-file) accounts")
      ("FY22 Expense" "%(binary) -f %(ledger-file) -b 2021-07-01 -e 2022-07-01 bal ^Expense -X AUD")))
  '(ledger-schedule-file "schedule.ledger")
  '(org-agenda-custom-commands
@@ -48,16 +48,36 @@
  '(org-capture-templates
    '(("t" "Task" entry
       (file "~/org/inbox.org")
-      "* TODO %^{Task}%? %^G
-  %u" :empty-lines 1)
+      "* TODO %^{Task}%? %^G\n  %u" :empty-lines 1)
      ("g" "Grocery" entry
       (file "~/org/inbox.org")
-      "* TODO %?  :grocery:
-  %u" :empty-lines 1)
+      "* TODO %?  :grocery:\n  %u" :empty-lines 1)
      ("b" "Building" entry
       (file+olp "~/org/finance.org" "Property" "Craigieburn" "DIY house repair" "Tools and materials")
-      "* TODO %?  :building:bunnings:
-  %u" :empty-lines 1)))
+      "* TODO %?  :building:bunnings:\n  %u" :empty-lines 1)))
+ '(org-tag-persistent-alist
+   '((:startgroup)
+     ("home" . 104)
+     ("office")
+     ("errand")
+     (:endgroup)
+     (:newline)
+     (:startgrouptag)
+     ("errand")
+     (:grouptags)
+     ("grocery" . 103)
+     ("chemist" . 99)
+     ("library")
+     ("mall")
+     (:endgrouptag)
+     (:newline)
+     ("rhodes")
+     ("chatswood")
+     ("sydney")
+     (:newline)
+     ("research" . 114)
+     ("minutes" . 109)
+     ("hours" . 111)))
  '(package-selected-packages '(magit ledger-mode)))
 
 (custom-set-faces
