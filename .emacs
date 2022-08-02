@@ -78,6 +78,9 @@
      ("research" . 114)
      ("minutes" . 109)
      ("hours" . 111)))
+ '(org-todo-keywords
+   '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+     (sequence "HOLD(h@/!)" "WAITING(w@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING")))
  '(package-selected-packages '(magit ledger-mode)))
 
 (custom-set-faces
