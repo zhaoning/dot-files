@@ -4,7 +4,7 @@
               ("r" "Respond" entry (file "~/org/inbox.org")
                "* NEXT Respond to %^{from} on %^{subject}\n  SCHEDULED: %t\n  %U\n  %a\n"
 	       :immediate-finish t)
-              ("n" "note" entry (file "~/org/inbox.org")
+              ("n" "Note" entry (file "~/org/inbox.org")
                "* %? :NOTE:\n  %U\n  %a\n")
               ("j" "Journal" entry (file+datetree "~/org/diary.org")
                "* %?\n  %U\n")
