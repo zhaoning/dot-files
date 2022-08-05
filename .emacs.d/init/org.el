@@ -12,6 +12,5 @@
 (setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
 (setq org-refile-use-outline-path 'file)
 
-(setq org-adapt-indentation t)
 (setq org-agenda-span 'day)
 (setq org-deadline-warning-days 3)
