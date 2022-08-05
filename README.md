@@ -5,3 +5,4 @@
 - `.zshrc`
 - `.tmux.conf`
 - `.ledgerrc`
+- `.emacs.d`
