@@ -6,8 +6,15 @@
 (setq org-default-notes-file (quote "~/org/inbox.org"))
 
 (setq org-todo-keywords
-      (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
-              (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING"))))
+      '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+        (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE(p)" "MEETING(m)")))
+
+(setq org-tag-persistent-alist
+      '((:startgroup) ("home" . ?h) ("office" . ?o) ("errand" . ?e) (:endgroup) (:newline)
+	("PROJECT" . ?P) ("AREA" . ?A) ("NOTE" . ?N)))
+
+(setq org-tags-exclude-from-inheritance '("PROJECT" "AREA"))
+(setq org-stuck-projects '("PROJECT/-DONE-CANCELLED" ("NEXT") nil ""))
 
 (setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
 (setq org-refile-use-outline-path 'file)
