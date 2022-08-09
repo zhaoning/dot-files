@@ -1,4 +1,5 @@
 (setq org-agenda-compact-blocks t)
+(setq org-agenda-tags-todo-honor-ignore-options t)
 
 (setq org-agenda-custom-commands
       '(("n" "Master view"
