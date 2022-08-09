@@ -2,7 +2,7 @@
 
 (setq org-agenda-custom-commands
       '(("n" "Master view"
-	 ((agenda "" nil)
+	 ((agenda "")
 	  (tags "REFILE"
 		((org-agenda-overriding-header "Tasks to Refile")
 		 (org-tags-match-list-sublevels nil)))
@@ -14,5 +14,7 @@
 		      (org-agenda-sorting-strategy
 		       '(priority-down effort-up category-keep))))
 	  (stuck "" nil
-		 ((org-agenda-overriding-header "Stuck Projects")))
-	 nil))))
+		 ((org-agenda-overriding-header "Stuck Projects"))))
+	 ((org-agenda-tag-filter-preset '("-homework"))))
+	("h" "Homework" agenda ""
+	 ((org-agenda-tag-filter-preset '("+homework"))))))
