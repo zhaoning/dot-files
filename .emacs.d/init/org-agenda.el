@@ -14,8 +14,10 @@
 		      (org-agenda-todo-ignore-with-date nil)
 		      (org-agenda-sorting-strategy
 		       '(priority-down effort-up category-keep))))
-	  (stuck "" nil
+	  (stuck ""
 		 ((org-agenda-overriding-header "Stuck Projects")))
+	  (todo "HOLD|WAITING"
+		((org-agenda-overriding-header "On Hold or Waiting")))
 	  (todo "TODO"
 		((org-agenda-overriding-header "Backlog")
 		 (org-agenda-todo-ignore-scheduled 'all)
