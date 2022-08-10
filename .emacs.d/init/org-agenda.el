@@ -15,7 +15,14 @@
 		      (org-agenda-sorting-strategy
 		       '(priority-down effort-up category-keep))))
 	  (stuck "" nil
-		 ((org-agenda-overriding-header "Stuck Projects"))))
+		 ((org-agenda-overriding-header "Stuck Projects")))
+	  (todo "TODO"
+		((org-agenda-overriding-header "Backlog")
+		 (org-agenda-todo-ignore-scheduled 'all)
+		 (org-agenda-todo-ignore-deadlines 'all)
+		 (org-agenda-todo-ignore-with-date 'all)
+		 (org-agenda-sorting-strategy
+		  '(priority-down effort-up category-keep)))))
 	 ((org-agenda-tag-filter-preset '("-homework"))))
 	("h" "Homework" agenda ""
 	 ((org-agenda-tag-filter-preset '("+homework"))))))
