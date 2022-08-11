@@ -18,6 +18,9 @@
 		 ((org-agenda-overriding-header "Stuck Projects")))
 	  (todo "HOLD|WAITING"
 		((org-agenda-overriding-header "On Hold or Waiting")))
+	  (tags "IDEA"
+		((org-agenda-overriding-header "Ideas")
+		 (org-tags-match-list-sublevels nil)))
 	  (todo "TODO"
 		((org-agenda-overriding-header "Backlog")
 		 (org-agenda-todo-ignore-scheduled 'all)

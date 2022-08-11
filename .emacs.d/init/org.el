@@ -13,7 +13,9 @@
       '((:startgroup) ("PROJECT" . ?P) ("AREA" . ?A) ("NOTE" . ?N) (:endgroup) (:newline)
 	(:startgroup) ("home" . ?h) ("office" . ?o) ("errand" . ?e) (:endgroup) (:newline)
 	("term" . ?t) ("mac" . ?m) ("tablet" . ?b) ("phone" . ?p) (:newline)
-	("grocery" . ?g)))
+	(:startgrouptag) ("grocery" . ?g) (:grouptags)
+	("woolworths" . ?w) ("coles" . ?c) ("asian" . ?a)
+	(:endgrouptag)))
 
 (setq org-tags-exclude-from-inheritance '("PROJECT" "AREA"))
 (setq org-stuck-projects '("PROJECT/-DONE-CANCELLED" ("NEXT") nil ""))
