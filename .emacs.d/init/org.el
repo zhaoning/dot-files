@@ -10,7 +10,7 @@
         (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE(p)" "MEETING(m)")))
 
 (setq org-tag-persistent-alist
-      '((:startgroup) ("PROJECT" . ?P) ("AREA" . ?A) ("NOTE" . ?N) (:endgroup) (:newline)
+      '((:startgroup) ("IDEA" . ?I) ("PROJECT" . ?P) ("AREA" . ?A) ("NOTE" . ?N) (:endgroup) (:newline)
 	(:startgroup) ("home" . ?h) ("office" . ?o) ("errand" . ?e) (:endgroup) (:newline)
 	("term" . ?t) ("mac" . ?m) ("tablet" . ?b) ("phone" . ?p) (:newline)
 	(:startgrouptag) ("grocery" . ?g) (:grouptags)
