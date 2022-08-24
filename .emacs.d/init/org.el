@@ -26,3 +26,4 @@
 (setq org-adapt-indentation nil)
 (setq org-agenda-span 'day)
 (setq org-deadline-warning-days 3)
+(setq org-archive-location "archive::")
