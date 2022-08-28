@@ -6,6 +6,7 @@
 (load "~/.emacs.d/init/org")
 (load "~/.emacs.d/init/org-agenda")
 (load "~/.emacs.d/init/org-capture")
+(load "~/.emacs.d/init/org-clock")
 (load "~/.emacs.d/init/ledger")
 (load "~/.emacs.d/init/lilypond")
 
