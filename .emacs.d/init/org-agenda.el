@@ -29,7 +29,7 @@
 		 (org-agenda-sorting-strategy
 		  '(priority-down effort-up category-keep)))))
 	 ((org-agenda-tag-filter-preset '("-homework"))))
-	("t" "Tags view"
+	("c" "Context view"
 	 ((tags "grocery")
 	  (tags "shopping-grocery")
 	  (tags "emacs")))
