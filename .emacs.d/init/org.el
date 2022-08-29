@@ -10,11 +10,16 @@
         (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE(p)" "MEETING(m)")))
 
 (setq org-tag-persistent-alist
-      '((:startgroup) ("IDEA" . ?I) ("PROJECT" . ?P) ("AREA" . ?A) ("NOTE" . ?N) (:endgroup) (:newline)
-	(:startgroup) ("home" . ?h) ("office" . ?o) ("errand" . ?e) (:endgroup) (:newline)
-	("term" . ?t) ("mac" . ?m) ("tablet" . ?b) ("phone" . ?p) (:newline)
+      '((:startgroup) ("IDEA" . ?I) ("PROJECT" . ?P) ("AREA" . ?A) ("NOTE" . ?N)
+	(:endgroup) (:newline)
+	(:startgroup) ("home" . ?h) ("office" . ?o) ("errand" . ?e)
+	(:endgroup) (:newline)
+	("music" . ?m) ("ledger" . ?l) ("emacs" . ?x) ("cook" . ?k) (:newline)
 	(:startgrouptag) ("grocery" . ?g) (:grouptags)
 	("woolworths" . ?w) ("coles" . ?c) ("asian" . ?a)
+	(:endgrouptag) (:newline)
+	(:startgrouptag) ("shopping" . ?s) (:grouptags)
+	("household" . ?u) ("instrument" . ?i) ("stationery" . ?t) ("grocery" . ?g)
 	(:endgrouptag)))
 
 (setq org-tags-exclude-from-inheritance '("PROJECT" "AREA"))
