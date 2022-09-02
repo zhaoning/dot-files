@@ -24,4 +24,4 @@
  ;; If there is more than one, they won't work right.
  )
 
-(load-theme 'tango)
+(load-theme 'tango-dark)
