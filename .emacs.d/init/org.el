@@ -33,3 +33,4 @@
 (setq org-agenda-span 'day)
 (setq org-deadline-warning-days 3)
 (setq org-archive-location "archive::")
+(setq org-id-link-to-org-use-id 'create-if-interactive)
