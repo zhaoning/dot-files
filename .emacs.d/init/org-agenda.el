@@ -14,24 +14,28 @@
 		      (org-agenda-todo-ignore-with-date nil)
 		      (org-agenda-sorting-strategy
 		       '(priority-down effort-up category-keep))))
+	  (todo "HOLD"
+		((org-agenda-overriding-header "On Hold")))
+	  (todo "WAITING"
+		((org-agenda-overriding-header "Waiting")))
 	  (stuck ""
 		 ((org-agenda-overriding-header "Stuck Projects")))
-	  (todo "HOLD|WAITING"
-		((org-agenda-overriding-header "On Hold or Waiting")))
-	  (tags "IDEA"
-		((org-agenda-overriding-header "Ideas")
-		 (org-tags-match-list-sublevels nil)))
 	  (todo "TODO"
 		((org-agenda-overriding-header "Backlog")
 		 (org-agenda-todo-ignore-scheduled 'all)
 		 (org-agenda-todo-ignore-deadlines 'all)
 		 (org-agenda-todo-ignore-with-date 'all)
 		 (org-agenda-sorting-strategy
-		  '(priority-down effort-up category-keep)))))
+		  '(priority-down effort-up category-keep))))
+	  (tags "IDEA"
+		((org-agenda-overriding-header "Ideas")
+		 (org-tags-match-list-sublevels nil))))
 	 ((org-agenda-tag-filter-preset '("-homework"))))
 	("c" "Context view"
-	 ((tags "grocery")
-	  (tags "shopping-grocery")
+	 ((tags-todo "grocery"
+		     ((org-agenda-todo-ignore-scheduled 'all)))
+	  (tags-todo "shopping-grocery"
+		     ((org-agenda-todo-ignore-scheduled 'all)))
 	  (tags "emacs")))
 	("h" "Homework" agenda ""
 	 ((org-agenda-tag-filter-preset '("+homework"))))))
