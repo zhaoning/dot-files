@@ -16,6 +16,6 @@
     ("p" "Phone" entry (file "~/org/inbox.org")
      "* PHONE %? :PHONE:\n%u\n"
      :clock-in t :clock-resume t)
-    ("g" "Grocery" entry (file "~/org/inbox.org")
+    ("g" "Grocery" entry (file+olp "~/org/trivia.org" "Shopping")
      "* TODO %? :grocery:\n%u\n")
     ))
