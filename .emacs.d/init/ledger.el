@@ -3,7 +3,7 @@
 (setq ledger-schedule-file "schedule.ledger")
 
 (setq ledger-reports
-      '(("Upcoming Payables" "%(binary) -f %(ledger-file) reg ^Asset:Receivable --effective -b \"today\" -S \"date\"")
+      '(("Upcoming Payables" "%(binary) -f %(ledger-file) reg ^Liability:Payable --effective -b \"today\" -S \"date\"")
         ("Net Worth" "%(binary) -f %(ledger-file) bal -cnX AUD ^Asset ^Liability")
 	("Budget" "%(binary) -f %(ledger-file) bal --budget --effective")
         ("Monthly Trend Effective" "%(binary) -f %(ledger-file) --period 'last 12 months' -M --effective reg %(account)")
