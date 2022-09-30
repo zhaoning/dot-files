@@ -20,7 +20,7 @@
 		((org-agenda-overriding-header "Waiting")))
 	  (stuck ""
 		 ((org-agenda-overriding-header "Stuck Projects")))
-	  (todo "TODO"
+	  (tags-todo "-shopping/TODO"
 		((org-agenda-overriding-header "Backlog")
 		 (org-agenda-todo-ignore-scheduled 'all)
 		 (org-agenda-todo-ignore-deadlines 'all)
