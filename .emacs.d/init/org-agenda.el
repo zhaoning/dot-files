@@ -32,10 +32,12 @@
 		 (org-tags-match-list-sublevels nil))))
 	 ((org-agenda-tag-filter-preset '("-homework"))))
 	("c" "Context view"
-	 ((tags-todo "grocery"
+	 ((tags-todo "+grocery"
 		     ((org-agenda-todo-ignore-scheduled 'all)))
-	  (tags-todo "shopping-grocery"
+	  (tags-todo "+shopping-grocery"
 		     ((org-agenda-todo-ignore-scheduled 'all)))
-	  (tags "emacs")))
+	  (tags "+shopping+pool/+DONE|+CANCELLED"
+		((org-agenda-todo-ignore-scheduled 'all)))
+	  (tags "+emacs")))
 	("h" "Homework" agenda ""
 	 ((org-agenda-tag-filter-preset '("+homework"))))))
