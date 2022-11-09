@@ -8,7 +8,6 @@
 (load "~/.emacs.d/init/org-capture")
 (load "~/.emacs.d/init/org-clock")
 (load "~/.emacs.d/init/ledger")
-(load "~/.emacs.d/init/lilypond")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
