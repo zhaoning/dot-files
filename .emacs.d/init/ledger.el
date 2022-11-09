@@ -2,6 +2,8 @@
 
 (setq ledger-schedule-file "schedule.ledger")
 
+(setq ledger-copy-transaction-insert-blank-line-after t)
+
 (setq ledger-reports
       '(;; RECONCILIATION
         ("rga - Register of Account"
@@ -12,7 +14,9 @@
 	 "%(binary) -f %(ledger-file) reg --pending")
 	;; EXECUTION
 	("up - Upcoming Payables"
-	 "%(binary) -f %(ledger-file) reg ^Liability:Payable --effective -b \"today\" -S \"date\"")
+	 "%(binary) -f %(ledger-file) reg ^Liability:Payable --effective -d \"d>=today\" -S \"date\"")
+	("ura - Upcoming Register of Account"
+	 "%(binary) -f %(ledger-file) reg %(account) -d \"d>=today\"")
 	;; BUDGETING
 	("bb - Budget Balance"
 	 "%(binary) -f %(ledger-file) bal --budget --effective")
