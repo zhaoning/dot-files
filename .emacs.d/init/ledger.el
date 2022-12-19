@@ -12,6 +12,17 @@
 	 "%(binary) -f %(ledger-file) reg @%(payee) -c")
 	("pe - Pending"
 	 "%(binary) -f %(ledger-file) reg --pending")
+	;; SUPER RECONCILIATION
+	("suc - Super Contributions"
+	 "%(binary) -f %(ledger-file) reg -b 2021-07-01 -e 2022-07-01 ^Asset:Super:Virgin and @AIAA")
+	("suf - Super Administration & Investment Fees"
+	 "%(binary) -f %(ledger-file) reg -b 2021-07-01 -e 2022-07-01 ^Expense:Finance and @\"Virgin Money Super\" and \"expr\" \"note =~ /fee/\"")
+	("sup - Super Insurance Premiums"
+	 "%(binary) -f %(ledger-file) reg -b 2021-07-01 -e 2022-07-01 ^Expense:Misc:Insurance and @\"Virgin Money Super\"")
+	("sut - Super Contribution Tax and Adjustments"
+	 "%(binary) -f %(ledger-file) reg -b 2021-07-01 -e 2022-07-01 ^Expense:Finance and @\"Virgin Money Super\" and \"expr\" \"note =~ /tax/\" ^Expense:Tax:Contribution")
+	("sub - Super Balance"
+	 "%(binary) -f %(ledger-file) bal -e 2022-07-01 -X AUD")
 	;; EXECUTION
 	("up - Upcoming Payables"
 	 "%(binary) -f %(ledger-file) reg ^Liability:Payable --effective -d \"d>=today\" -S \"date\"")
