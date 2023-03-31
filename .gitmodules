@@ -1,0 +1,6 @@
+[submodule "vim/pack/ning/opt/badwolf"]
+	path = vim/pack/ning/opt/badwolf
+	url = git@github.com:sjl/badwolf.git
+[submodule "vim/pack/ning/start/vim-airline"]
+	path = vim/pack/ning/start/vim-airline
+	url = git@github.com:vim-airline/vim-airline.git
