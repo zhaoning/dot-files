@@ -1,13 +1,13 @@
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'sjl/badwolf'
-Plugin 'vim-airline/vim-airline'
-
-call vundle#end()
+" filetype off
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
+" 
+" Plugin 'gmarik/Vundle.vim'
+" Plugin 'vim-scripts/indentpython.vim'
+" Plugin 'sjl/badwolf'
+" Plugin 'vim-airline/vim-airline'
+" 
+" call vundle#end()
 filetype plugin indent on
 
 syntax enable
