@@ -4,3 +4,6 @@
 [submodule "vim/pack/ning/start/vim-airline"]
 	path = vim/pack/ning/start/vim-airline
 	url = git@github.com:vim-airline/vim-airline.git
+[submodule "vim/pack/ning/start/vim-ledger"]
+	path = vim/pack/ning/start/vim-ledger
+	url = git@github.com:ledger/vim-ledger.git
