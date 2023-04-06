@@ -7,3 +7,6 @@
 [submodule "vim/pack/ning/start/vim-ledger"]
 	path = vim/pack/ning/start/vim-ledger
 	url = git@github.com:ledger/vim-ledger.git
+[submodule "vim/pack/ning/opt/onedark.vim"]
+	path = vim/pack/ning/opt/onedark.vim
+	url = git@github.com:joshdick/onedark.vim.git
