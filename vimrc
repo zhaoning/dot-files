@@ -38,7 +38,53 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 set expandtab
 set tabstop=4
 
+" Remove trailing spaces
+nnoremap <leader>rt :%s/\s\+$//<cr>
+
 " Colour theme
 packadd! onedark.vim
 colorscheme onedark
+
+" Ledger
+let g:ledger_is_hledger = v:false
+let g:ledger_align_at = 50
+let g:ledger_align_commodity = 1
+let g:ledger_default_commodity = 'AUD'
+let g:ledger_commodity_before = 0
+let g:ledger_commodity_sep = ' '
+augroup ledger_file
+        au!
+        "au FileType ledger nnoremap <buffer> <localleader>v
+        "                        \ :silent make | redraw! | cwindow
+
+        " Autocompletion and align
+        au FileType ledger inoremap <silent> <buffer> <tab>
+                                \ <C-r>=ledger#autocomplete_and_align()<cr>
+
+        " Status toggle - transaction
+        au FileType ledger nnoremap <buffer> <localleader>x
+                                \ :call ledger#transaction_state_toggle
+                                \ (line('.'), ' *?!')<cr>
+
+        " Status toggle - posting
+        au FileType ledger nnoremap <buffer> <localleader>p
+                                \ :call ledger#transaction_post_state_toggle
+                                \ (line('.'), ' *?!')<cr>
+
+        " Use quickfix commands in reconciliation
+        au FileType ledger nnoremap <buffer> <C-N> :cnext<cr>
+        au FileType ledger nnoremap <buffer> <C-P> :cprev<cr>
+
+        " Balance of current account
+        au FileType ledger nnoremap <buffer> <localleader>b :Balance<cr>
+
+        " Sort transactions
+        au FileType ledger nnoremap <buffer> <localleader>st
+                                \ :%!ledger -f % print --sort d<cr>
+
+        " Validity check
+        au FileType ledger nnoremap <buffer> <localleader>v
+                                \ :silent make\|redraw!\|cwindow<cr>
+
+augroup end
 
