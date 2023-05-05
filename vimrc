@@ -52,10 +52,13 @@ let g:ledger_align_commodity = 1
 let g:ledger_default_commodity = 'AUD'
 let g:ledger_commodity_before = 0
 let g:ledger_commodity_sep = ' '
+let g:ledger_extra_options = '--strict'
 augroup ledger_file
         au!
-        "au FileType ledger nnoremap <buffer> <localleader>v
-        "                        \ :silent make | redraw! | cwindow
+
+        " Go to main ledger file
+        au FileType ledger nnoremap <buffer> <localleader>m
+                                \ :e ~/ledger/ktulu.ledger<cr>
 
         " Autocompletion and align
         au FileType ledger inoremap <silent> <buffer> <tab>
@@ -64,12 +67,12 @@ augroup ledger_file
         " Status toggle - transaction
         au FileType ledger nnoremap <buffer> <localleader>x
                                 \ :call ledger#transaction_state_toggle
-                                \ (line('.'), ' *?!')<cr>
+                                \ (line('.'), ' *!')<cr>
 
         " Status toggle - posting
         au FileType ledger nnoremap <buffer> <localleader>p
                                 \ :call ledger#transaction_post_state_toggle
-                                \ (line('.'), ' *?!')<cr>
+                                \ (line('.'), ' *!')<cr>
 
         " Use quickfix commands in reconciliation
         au FileType ledger nnoremap <buffer> <C-N> :cnext<cr>
@@ -80,11 +83,15 @@ augroup ledger_file
 
         " Sort transactions
         au FileType ledger nnoremap <buffer> <localleader>st
-                                \ :%!ledger -f % print --sort d<cr>
+                                \ :%!ledger -f - print --sort d<cr>
 
         " Validity check
         au FileType ledger nnoremap <buffer> <localleader>v
                                 \ :silent make\|redraw!\|cwindow<cr>
+
+        " Run reports from a comment line
+        au FileType ledger nnoremap <buffer> <localleader>rr
+                                \ 0wvg_y:@"<cr>
 
 augroup end
 
