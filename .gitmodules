@@ -10,3 +10,6 @@
 [submodule "vim/pack/ning/opt/onedark.vim"]
 	path = vim/pack/ning/opt/onedark.vim
 	url = git@github.com:joshdick/onedark.vim.git
+[submodule "vim/pack/ning/start/vim-beancount"]
+	path = vim/pack/ning/start/vim-beancount
+	url = git@github.com:nathangrigg/vim-beancount.git

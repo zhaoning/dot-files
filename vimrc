@@ -52,7 +52,6 @@ let g:ledger_align_commodity = 1
 let g:ledger_default_commodity = 'AUD'
 let g:ledger_commodity_before = 0
 let g:ledger_commodity_sep = ' '
-let g:ledger_extra_options = '--strict'
 augroup ledger_file
         au!
 
@@ -95,3 +94,27 @@ augroup ledger_file
 
 augroup end
 
+" Beancount
+augroup beancount
+        au!
+
+        " Root Beancount file
+        au FileType beancount let b:beancount_root = '~/bean/ktulu.bean'
+
+        " Go to root Beancount file
+        au FileType beancount nnoremap <buffer> <localleader>m
+                                \ :e ~/bean/ktulu.bean<cr>
+
+        " Auto alignment
+        au FileType beancount inoremap <buffer> .
+                                \ .<C-\><C-O>:AlignCommodity<cr>
+        au FileType beancount nnoremap <buffer> <localleader>=
+                                \ :AlignCommodity<cr>
+        au FileType beancount vnoremap <buffer> <localleader>=
+                                \ :AlignCommodity<cr>
+
+        " Get context
+        au FileType beancount nnoremap <buffer> <localleader>c
+                                \ :GetContext<cr>
+
+augroup end
