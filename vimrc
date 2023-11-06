@@ -45,6 +45,10 @@ nnoremap <leader>rt :%s/\s\+$//<cr>
 packadd! onedark.vim
 colorscheme onedark
 
+" Quickfix
+nnoremap ]c :cnext<cr>
+nnoremap [c :cprev<cr>
+
 " Ledger
 let g:ledger_is_hledger = v:false
 let g:ledger_align_at = 50
@@ -95,8 +99,11 @@ augroup ledger_file
 augroup end
 
 " Beancount
-augroup beancount
+augroup beancount_file
         au!
+
+        " Shift width
+        au FileType beancount setl shiftwidth=4
 
         " Root Beancount file
         au FileType beancount let b:beancount_root = '~/bean/ktulu.bean'
@@ -116,5 +123,9 @@ augroup beancount
         " Get context
         au FileType beancount nnoremap <buffer> <localleader>c
                                 \ :GetContext<cr>
+
+        " Use quickfix commands in reconciliation
+        au FileType beancount nnoremap <buffer> <C-N> :cnext<cr>
+        au FileType beancount nnoremap <buffer> <C-P> :cprev<cr>
 
 augroup end
