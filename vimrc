@@ -38,6 +38,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " Spacing
 set expandtab
 set tabstop=4
+set shiftwidth=4
 
 " Remove trailing spaces
 nnoremap <leader>rt :%s/\s\+$//<cr>
