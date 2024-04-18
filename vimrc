@@ -15,6 +15,7 @@ set number
 set relativenumber
 set cursorline
 set colorcolumn=80
+set textwidth=80
 
 " Auto completion
 set wildmenu
@@ -45,65 +46,21 @@ nnoremap <leader>rt :%s/\s\+$//<cr>
 packadd! onedark.vim
 colorscheme onedark
 
-" Quickfix
+" Quickfix and location list
 nnoremap ]c :cnext<cr>
 nnoremap [c :cprev<cr>
+nnoremap ]v :lnext<cr>
+nnoremap [v :lprev<cr>
 
-" Ledger
-let g:ledger_is_hledger = v:false
-let g:ledger_align_at = 50
-let g:ledger_align_commodity = 1
-let g:ledger_default_commodity = 'AUD'
-let g:ledger_commodity_before = 0
-let g:ledger_commodity_sep = ' '
-augroup ledger_file
-        au!
-
-        " Go to main ledger file
-        au FileType ledger nnoremap <buffer> <localleader>m
-                                \ :e ~/ledger/ktulu.ledger<cr>
-
-        " Autocompletion and align
-        au FileType ledger inoremap <silent> <buffer> <tab>
-                                \ <C-r>=ledger#autocomplete_and_align()<cr>
-
-        " Status toggle - transaction
-        au FileType ledger nnoremap <buffer> <localleader>x
-                                \ :call ledger#transaction_state_toggle
-                                \ (line('.'), ' *!')<cr>
-
-        " Status toggle - posting
-        au FileType ledger nnoremap <buffer> <localleader>p
-                                \ :call ledger#transaction_post_state_toggle
-                                \ (line('.'), ' *!')<cr>
-
-        " Use quickfix commands in reconciliation
-        au FileType ledger nnoremap <buffer> <C-N> :cnext<cr>
-        au FileType ledger nnoremap <buffer> <C-P> :cprev<cr>
-
-        " Balance of current account
-        au FileType ledger nnoremap <buffer> <localleader>b :Balance<cr>
-
-        " Sort transactions
-        au FileType ledger nnoremap <buffer> <localleader>st
-                                \ :%!ledger -f - print --sort d<cr>
-
-        " Validity check
-        au FileType ledger nnoremap <buffer> <localleader>v
-                                \ :silent make\|redraw!\|cwindow<cr>
-
-        " Run reports from a comment line
-        au FileType ledger nnoremap <buffer> <localleader>rr
-                                \ 0wvg_y:@"<cr>
-
-augroup end
+" Buffer switching
+nnoremap <leader>b :ls<cr>:b<space>
 
 " Beancount
 augroup beancount_file
         au!
 
         " Shift width
-        au FileType beancount setl shiftwidth=4
+        au FileType beancount setl shiftwidth=2
 
         " Root Beancount file
         au FileType beancount let b:beancount_root = '~/bean/ktulu.bean'
@@ -112,20 +69,41 @@ augroup beancount_file
         au FileType beancount nnoremap <buffer> <localleader>m
                                 \ :e ~/bean/ktulu.bean<cr>
 
-        " Auto alignment
-        au FileType beancount inoremap <buffer> .
-                                \ .<C-\><C-O>:AlignCommodity<cr>
-        au FileType beancount nnoremap <buffer> <localleader>=
-                                \ :AlignCommodity<cr>
-        au FileType beancount vnoremap <buffer> <localleader>=
-                                \ :AlignCommodity<cr>
-
         " Get context
         au FileType beancount nnoremap <buffer> <localleader>c
                                 \ :GetContext<cr>
 
-        " Use quickfix commands in reconciliation
-        au FileType beancount nnoremap <buffer> <C-N> :cnext<cr>
-        au FileType beancount nnoremap <buffer> <C-P> :cprev<cr>
+augroup end
+
+" Vimwiki
+let w1 = {}
+let w1.name = 'Work'
+let w1.path = '~/wiki/aia'
+let w1.path_html = '~/wiki/aia_html'
+let w1.diary_caption_level = 1
+let w1.auto_diary_index = 1
+let w1.auto_tags = 1
+
+let w2 = {}
+let w2.name = 'Personal'
+let w2.path = '~/wiki/nz'
+let w2.path_html = '~/wiki/nz_html'
+let w2.diary_caption_level = 1
+let w2.auto_diary_index = 1
+let w2.auto_tags = 1
+
+let g:vimwiki_list = [w1, w2]
+
+augroup vimwiki_group
+        au!
+
+        " Smaller shift width and no wrap in diary index
+        au FileType vimwwiki :set shiftwidth=4
+        au FileType vimwwiki :set nowrap
+
+        " Abbreviations
+        au FileType vimwiki :cabbrev gtl VimwikiGenerateTagLinks
+        au FileType vimwiki :cabbrev toc VimwikiTOC
+        au FileType vimwiki :cabbrev html Vimwiki2HTML
 
 augroup end
