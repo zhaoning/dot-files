@@ -58,21 +58,21 @@ nnoremap <leader>b :ls<cr>:b<space>
 
 " Beancount
 augroup beancount_file
-        au!
+    au!
 
-        " Shift width
-        au FileType beancount setl shiftwidth=2
+    " Shift width
+    au FileType beancount setl shiftwidth=2
 
-        " Root Beancount file
-        au FileType beancount let b:beancount_root = '~/bean/ktulu.bean'
+    " Root Beancount file
+    au FileType beancount let b:beancount_root = '~/bean/ktulu.bean'
 
-        " Go to root Beancount file
-        au FileType beancount nnoremap <buffer> <localleader>m
-                                \ :e ~/bean/ktulu.bean<cr>
+    " Go to root Beancount file
+    au FileType beancount nnoremap <buffer> <localleader>m
+                            \ :e ~/bean/ktulu.bean<cr>
 
-        " Get context
-        au FileType beancount nnoremap <buffer> <localleader>c
-                                \ :GetContext<cr>
+    " Get context
+    au FileType beancount nnoremap <buffer> <localleader>c
+                            \ :GetContext<cr>
 
 augroup end
 
@@ -96,15 +96,14 @@ let w2.auto_tags = 1
 let g:vimwiki_list = [w1, w2]
 
 augroup vimwiki_group
-        au!
+    au!
 
-        " Smaller shift width and no wrap in diary index
-        au FileType vimwwiki :set shiftwidth=4
-        au FileType vimwwiki :set nowrap
+    " No wrap
+    au FileType vimwwiki :set nowrap
 
-        " Abbreviations
-        au FileType vimwiki :cabbrev gtl VimwikiGenerateTagLinks
-        au FileType vimwiki :cabbrev toc VimwikiTOC
-        au FileType vimwiki :cabbrev html Vimwiki2HTML
+    " Abbreviations
+    au FileType vimwiki :cabbrev gtl VimwikiGenerateTagLinks
+    au FileType vimwiki :cabbrev toc VimwikiTOC
+    au FileType vimwiki :cabbrev html Vimwiki2HTML
 
 augroup end

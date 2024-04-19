@@ -13,3 +13,6 @@
 [submodule "vim/pack/ning/start/vim-beancount"]
 	path = vim/pack/ning/start/vim-beancount
 	url = git@github.com:nathangrigg/vim-beancount.git
+[submodule "vim/pack/ning/start/vimwiki"]
+	path = vim/pack/ning/start/vimwiki
+	url = git@github.com:vimwiki/vimwiki.git
