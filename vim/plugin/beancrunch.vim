@@ -7,16 +7,18 @@ function! s:ReconOp(type)
     if a:type ==# 'v'
         normal! `<v`>y
     elseif a:type ==# 'char'
-        normal! `[y`]
+        normal! `[v`]y
     else
         return
     endif
 
-    echom <sid>ReconExpr(@@)
+    execute "cexpr system(\"" . escape(<sid>ReconExpr(@@), '"') . "\")"
 
     let @@ = saved_unnamed_register
 endfunc
 
 function! s:ReconExpr(account)
-    return "Let's " . a:account
+    return "bean-query " . expand("%") . " " .
+         \ shellescape('select location, date, narration, position '
+                   \ . 'where account ~ "' . a:account . '"')
 endfunc
