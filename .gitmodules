@@ -16,3 +16,6 @@
 [submodule "vim/pack/ning/start/vimwiki"]
 	path = vim/pack/ning/start/vimwiki
 	url = git@github.com:vimwiki/vimwiki.git
+[submodule "vim/pack/ning/start/vimwikirun"]
+	path = vim/pack/ning/start/vimwikirun
+	url = git@github.com:zhaoning/vimwikirun.git

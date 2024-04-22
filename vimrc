@@ -15,7 +15,7 @@ set number
 set relativenumber
 set cursorline
 set colorcolumn=80
-set textwidth=80
+set textwidth=79
 
 " Auto completion
 set wildmenu
@@ -91,19 +91,32 @@ let w2.path = '~/wiki/nz'
 let w2.path_html = '~/wiki/nz_html'
 let w2.diary_caption_level = 1
 let w2.auto_diary_index = 1
+let w2.automatic_nested_syntaxes = 1
 let w2.auto_tags = 1
 
-let g:vimwiki_list = [w1, w2]
+let g:vimwiki_list = [w2, w1]
+let g:vimwiki_folding = 'expr'
 
 augroup vimwiki_group
     au!
 
     " No wrap
-    au FileType vimwwiki :set nowrap
+    au FileType vimwiki :set nowrap
+
+    " Key clashes with macOS
+    au FileType vimwiki nnoremap <c-c> :VimwikiToggleListItem<cr>
 
     " Abbreviations
     au FileType vimwiki :cabbrev gtl VimwikiGenerateTagLinks
     au FileType vimwiki :cabbrev toc VimwikiTOC
     au FileType vimwiki :cabbrev html Vimwiki2HTML
+
+    " Run code block
+    au FileType vimwiki nnoremap <buffer> <localleader>v :VikiRunEcho<cr>
+    au FileType vimwiki nnoremap <buffer> <localleader>V :VikiRunInsert<cr>
+
+    " Shortcut
+    au FileType vimwiki nnoremap <buffer> <localleader>q
+                \ o{{{bean-query ~/bean/ktulu.bean<cr>}}}<esc>O
 
 augroup end
