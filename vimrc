@@ -114,9 +114,10 @@ augroup vimwiki_group
     " Run code block
     au FileType vimwiki nnoremap <buffer> <localleader>v :VikiRunEcho<cr>
     au FileType vimwiki nnoremap <buffer> <localleader>V :VikiRunInsert<cr>
+    au FileType vimwiki nnoremap <buffer> <localleader><C-v> :VikiRunQf<cr>
 
     " Shortcut
     au FileType vimwiki nnoremap <buffer> <localleader>q
-                \ o{{{bean-query ~/bean/ktulu.bean<cr>}}}<esc>O
+                \ o{{{bean-query -q ktulu.bean<cr>}}}<esc>O
 
 augroup end
