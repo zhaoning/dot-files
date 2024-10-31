@@ -15,7 +15,8 @@ set number
 set relativenumber
 set cursorline
 set colorcolumn=80
-set textwidth=79
+set nostartofline
+set nowrap
 
 " Auto completion
 set wildmenu
@@ -62,6 +63,7 @@ augroup beancount_file
 
     " Shift width
     au FileType beancount setl shiftwidth=2
+    au FileType beancount setl textwidth=0
 
     " Root Beancount file
     au FileType beancount let b:beancount_root = '~/bean/ktulu.bean'
@@ -74,6 +76,9 @@ augroup beancount_file
     au FileType beancount nnoremap <buffer> <localleader>c
                             \ :GetContext<cr>
 
+    " Clear transaction
+    au FileType beancount nnoremap <buffer> <localleader>x
+                \ 0f!r*
 augroup end
 
 " Vimwiki
@@ -113,11 +118,11 @@ augroup vimwiki_group
 
     " Run code block
     au FileType vimwiki nnoremap <buffer> <localleader>v :VikiRunEcho<cr>
-    au FileType vimwiki nnoremap <buffer> <localleader>V :VikiRunInsert<cr>
+    au FileType vimwiki nnoremap <buffer> <localleader>V :VikiRunReplace<cr>
     au FileType vimwiki nnoremap <buffer> <localleader><C-v> :VikiRunQf<cr>
 
     " Shortcut
     au FileType vimwiki nnoremap <buffer> <localleader>q
-                \ o{{{bean-query -q ktulu.bean<cr>}}}<esc>O
+                \ o{{{bean-query -q ~/bean/ktulu.bean<cr>}}}<esc>O
 
 augroup end
