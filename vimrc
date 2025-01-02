@@ -82,14 +82,6 @@ augroup beancount_file
 augroup end
 
 " Vimwiki
-let w1 = {}
-let w1.name = 'Work'
-let w1.path = '~/wiki/aia'
-let w1.path_html = '~/wiki/aia_html'
-let w1.diary_caption_level = 1
-let w1.auto_diary_index = 1
-let w1.auto_tags = 1
-
 let w2 = {}
 let w2.name = 'Personal'
 let w2.path = '~/wiki/nz'
@@ -99,7 +91,7 @@ let w2.auto_diary_index = 1
 let w2.automatic_nested_syntaxes = 1
 let w2.auto_tags = 1
 
-let g:vimwiki_list = [w2, w1]
+let g:vimwiki_list = [w2]
 let g:vimwiki_folding = 'expr'
 
 augroup vimwiki_group
