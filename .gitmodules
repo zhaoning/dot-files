@@ -16,3 +16,6 @@
 [submodule "vim/pack/ning/start/vimwikirun"]
 	path = vim/pack/ning/start/vimwikirun
 	url = git@github.com:zhaoning/vimwikirun.git
+[submodule "vim/pack/ning/start/vim-slime"]
+	path = vim/pack/ning/start/vim-slime
+	url = https://github.com/jpalardy/vim-slime.git

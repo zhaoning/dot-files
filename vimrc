@@ -126,3 +126,6 @@ augroup vimwiki_group
                 \ o{{{bean-query -q ~/bean/ktulu.bean<cr>}}}<esc>O
 
 augroup end
+
+" Let vim-slime work with tmux
+let g:slime_target = "tmux"
