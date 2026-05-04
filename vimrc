@@ -45,8 +45,9 @@ set shiftwidth=4
 nnoremap <leader>rt :%s/\s\+$//<cr>
 
 " Colour theme
-packadd! onedark.vim
-colorscheme onedark
+"packadd! onedark.vim
+colorscheme wildcharm
+set background=dark
 
 " Quickfix and location list
 nnoremap ]c :cnext<cr>
@@ -66,11 +67,7 @@ augroup beancount_file
     au FileType beancount setl textwidth=0
 
     " Root Beancount file
-    au FileType beancount let b:beancount_root = '~/bean/ktulu.bean'
-
-    " Go to root Beancount file
-    au FileType beancount nnoremap <buffer> <localleader>m
-                            \ :e ~/bean/ktulu.bean<cr>
+    au FileType beancount let b:beancount_root = '~/bean/root.bean'
 
     " Get context
     au FileType beancount nnoremap <buffer> <localleader>c
@@ -115,9 +112,14 @@ augroup vimwiki_group
 
     " Shortcut
     au FileType vimwiki nnoremap <buffer> <localleader>q
-                \ o{{{bean-query -q ~/bean/ktulu.bean<cr>}}}<esc>O
+                \ o{{{bean-query -q ~/bean/root.bean<cr>}}}<esc>O
 
 augroup end
 
 " Let vim-slime work with tmux
 let g:slime_target = "tmux"
+
+" File type for crontab
+autocmd BufRead,BufNewFile *.cron set filetype=crontab
+
+nnoremap <c-c>n {v}:SlimeSend<cr>}}ge

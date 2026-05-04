@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/etc/nginx/conf.d'
+let g:netrw_dirhist_8='/etc/nginx'
+let g:netrw_dirhist_7='/etc/nginx/default.d'
+let g:netrw_dirhist_6='/etc/nginx'
+let g:netrw_dirhist_5='/etc/nginx/conf.d'
+let g:netrw_dirhist_4='/home/ning/bean/bank/AMEX-Pt'
+let g:netrw_dirhist_3='/home/ning/bean/bank'
+let g:netrw_dirhist_2='/home/ning/bean'
+let g:netrw_dirhist_1='/home/ning/bean/bank/AMEX-Pt'
+let g:netrw_dirhist_0='/home/ning/bean/bank'
